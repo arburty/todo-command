@@ -3,6 +3,8 @@
 This is a simple tool for making and organizing a To Do list.
 
 # Instructions
+by simply typing 'todo' the To Do list is printed to the terminal
+
 ## - add
 First add items to the todo list using add.
 add takes at least two elements, a flag and a string.
