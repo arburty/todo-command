@@ -107,7 +107,7 @@ addS(){
 	
 }
 
-#should be passed option and string
+# should be passed option and string
 # $1 = option | $2 = string
 add() {
     case $1 in
