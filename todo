@@ -4,12 +4,25 @@
 
 #save the path to where the data is stored
 path="$HOME/.to_do_files"
+
+# save the program name because add (and others) use shift
+# set debug
+# fileCount is how many todo list items there are plus the header
+PROGRAM="$0"
+debug=false
+let fileCount=$(ls $path | wc -l)
+
 #For testing
-debut=true;
+if [[ "$1" == "--D" ]]
+then
+    debug=true;
+    shift
+fi
 if $debug ; then
-    echo "DEBUGGING"
+    echo "::DEBUGGING::"
     path="$HOME/test/.to_do_files"
 fi
+
 # if there is no directory yet, the directory is empty,
 # or the header file is missing
 if [[ ! -d $path || ! -f $path/header ]]
@@ -17,11 +30,6 @@ then
 	mkdir $path 2> /dev/null
 	echo "The Ever Growing List of Things To Do" >> $path/header
 fi
-
-#save the program name because add (and others) use shift
-# fileCount is how many todo list items there are plus the header
-PROGRAM="$0"
-let fileCount=$(ls $path | wc -l)
 
 # precedes main for efficiency
 # main starts at bottom
