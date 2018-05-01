@@ -2,10 +2,14 @@
 # Austin Burt
 # A todo list to keep you organized
 
-
 #save the path to where the data is stored
 path="$HOME/.to_do_files"
-
+#For testing
+debut=true;
+if $debug ; then
+    echo "DEBUGGING"
+    path="$HOME/test/.to_do_files"
+fi
 # if there is no directory yet, the directory is empty,
 # or the header file is missing
 if [[ ! -d $path || ! -f $path/header ]]
