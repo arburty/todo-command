@@ -10,7 +10,6 @@ path="$HOME/.to_do_files"
 # fileCount is how many todo list items there are plus the header
 PROGRAM="$0"
 debug=false
-let fileCount=$(ls $path | wc -l)
 
 #For testing
 if [[ "$1" == "--D" ]]
@@ -21,7 +20,11 @@ fi
 if $debug ; then
     echo "::DEBUGGING::"
     path="$HOME/test/.to_do_files"
+    echo ::DB::$path
 fi
+
+#after debug setup for $path
+let fileCount=$(ls $path | wc -l)
 
 # if there is no directory yet, the directory is empty,
 # or the header file is missing
@@ -48,7 +51,7 @@ then
 		echo -n "	$i) "
 		cat "$path/$i"
 	done
-
+    
 	exit 0
 fi
 
