@@ -2,7 +2,7 @@
 # Austin Burt
 # A todo list to keep you organized
 
-#save the path to where the data is stored
+# save the path to where the data is stored
 path="$HOME/.to_do_files"
 
 # save the program name because add (and others) use shift
@@ -11,7 +11,7 @@ path="$HOME/.to_do_files"
 PROGRAM="$0"
 debug=false
 
-#For testing
+# For testing
 if [[ "$1" == "--D" ]]
 then
     debug=true;
@@ -23,7 +23,7 @@ if $debug ; then
     echo ::DB::$path
 fi
 
-#after debug setup for $path
+# after debug setup for $path
 let fileCount=$(ls $path | wc -l)
 
 # if there is no directory yet, the directory is empty,
@@ -51,7 +51,7 @@ then
 		echo -n "	$i) "
 		cat "$path/$i"
 	done
-    
+
 	exit 0
 fi
 
