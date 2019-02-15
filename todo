@@ -8,7 +8,7 @@ path="$HOME/.to_do_files"
 # save the program name because add (and others) use shift
 # set debug
 # fileCount is how many todo list items there are plus the header
-PROGRAM="$0"
+PROGRAM=$(basename $0)
 debug=false
 
 # For testing
@@ -24,7 +24,7 @@ if $debug ; then
 fi
 
 # after debug setup for $path
-let fileCount=$(ls $path | wc -l)
+let fileCount=$(ls $path | wc -l | tr -d '[:blank:]')
 
 # if there is no directory yet, the directory is empty,
 # or the header file is missing
